@@ -188,8 +188,19 @@ public final class PropertyServiceResource extends AbstractPropertyService {
    * @param res the given resource
    * @return the rank of the given resource
    */
-  public static String getUri(final Resource res) {
+  public static String getRank(final Resource res) {
     return (String) getAttribute(res, propNameRank);
   }
+  
+  /**
+   * Sets the resource rank for the provided resource.
+   * 
+   * @param res the provided resource
+   * @param rank to set
+   */
+  protected static void setRank(final Resource res, final String rank) {
+    res.setAttribute(propNameRank, rank);
+  }
+
 
 }
