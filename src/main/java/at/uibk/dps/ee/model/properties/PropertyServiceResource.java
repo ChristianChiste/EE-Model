@@ -3,6 +3,8 @@ package at.uibk.dps.ee.model.properties;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.google.gson.JsonPrimitive;
+
 import at.uibk.dps.ee.model.properties.PropertyServiceResourceServerless.Property;
 import net.sf.opendse.model.Resource;
 import net.sf.opendse.model.Task;
@@ -188,8 +190,8 @@ public final class PropertyServiceResource extends AbstractPropertyService {
    * @param res the given resource
    * @return the rank of the given resource
    */
-  public static String getRank(final Resource res) {
-    return (String) getAttribute(res, propNameRank);
+  public static Object getRank(final Resource res) {
+    return getAttribute(res, propNameRank);
   }
   
   /**
@@ -198,7 +200,7 @@ public final class PropertyServiceResource extends AbstractPropertyService {
    * @param res the provided resource
    * @param rank to set
    */
-  protected static void setRank(final Resource res, final String rank) {
+  protected static void setRank(final Resource res, final int rank) {
     res.setAttribute(propNameRank, rank);
   }
 
