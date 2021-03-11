@@ -49,7 +49,7 @@ public final class PropertyServiceResource extends AbstractPropertyService {
     /**
      * The rank of the resource
      */
-    Rank
+    Rank // as a tip: any time you introduce sth like a rank, make a comment whether bigger or smaller means more important
   }
 
   /**
@@ -190,7 +190,7 @@ public final class PropertyServiceResource extends AbstractPropertyService {
    * @param res the given resource
    * @return the rank of the given resource
    */
-  public static Object getRank(final Resource res) {
+  public static Object getRank(final Resource res) { // why doesn't this return an int?
     return getAttribute(res, propNameRank);
   }
   
