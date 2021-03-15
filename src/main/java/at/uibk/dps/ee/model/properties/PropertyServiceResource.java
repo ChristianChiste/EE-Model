@@ -3,9 +3,6 @@ package at.uibk.dps.ee.model.properties;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.google.gson.JsonPrimitive;
-
-import at.uibk.dps.ee.model.properties.PropertyServiceResourceServerless.Property;
 import net.sf.opendse.model.Resource;
 import net.sf.opendse.model.Task;
 import net.sf.opendse.model.properties.AbstractPropertyService;
@@ -21,7 +18,6 @@ public final class PropertyServiceResource extends AbstractPropertyService {
   private static final String propNameType = Property.Type.name();
   private static final String propNameState = Property.State.name();
   private static final String propNameUsedBy = Property.UsedBy.name();
-  public static final String propNameRank = Property.Rank.name();
 
   /**
    * No constructor.
@@ -45,11 +41,7 @@ public final class PropertyServiceResource extends AbstractPropertyService {
     /**
      * The set of tasks currently using the resource
      */
-    UsedBy,
-    /**
-     * The rank of the resource
-     */
-    Rank
+    UsedBy
   }
 
   /**
@@ -183,26 +175,5 @@ public final class PropertyServiceResource extends AbstractPropertyService {
   public static ResourceType getResourceType(final Resource res) {
     return ResourceType.valueOf((String) getAttribute(res, propNameType));
   }
-
-  /**
-   * Returns the rank of the given resource.
-   * 
-   * @param res the given resource
-   * @return the rank of the given resource
-   */
-  public static Object getRank(final Resource res) {
-    return getAttribute(res, propNameRank);
-  }
-  
-  /**
-   * Sets the resource rank for the provided resource.
-   * 
-   * @param res the provided resource
-   * @param rank to set
-   */
-  protected static void setRank(final Resource res, final int rank) {
-    res.setAttribute(propNameRank, rank);
-  }
-
 
 }

@@ -4,6 +4,7 @@ import at.uibk.dps.ee.model.constants.ConstantsEEModel;
 import net.sf.opendse.model.Mapping;
 import net.sf.opendse.model.Resource;
 import net.sf.opendse.model.Task;
+import net.sf.opendse.model.properties.AbstractPropertyService;
 
 /**
  * Static method container providing access to the attributes of the mapping
@@ -12,7 +13,9 @@ import net.sf.opendse.model.Task;
  * @author Fedor Smirnov
  *
  */
-public final class PropertyServiceMapping {
+public final class PropertyServiceMapping extends AbstractPropertyService{
+  
+  public static final String propNameRank = "Rank";
 
   /**
    * No constructor.
@@ -42,4 +45,25 @@ public final class PropertyServiceMapping {
   protected static String getMappingId(final Task src, final Resource dst) {
     return src.getId() + ConstantsEEModel.KeywordSeparator1 + dst.getId();
   }
+  
+  /**
+   * Returns the rank of the given resource.
+   * 
+   * @param res the given resource
+   * @return the rank of the given resource
+   */
+  public static int getRank(final Resource res) {
+    return (int) getAttribute(res, propNameRank);
+  }
+  
+  /**
+   * Sets the resource rank for the provided resource.
+   * 
+   * @param res the provided resource
+   * @param rank to set
+   */
+  public static void setRank(final Resource res, final int rank) {
+    res.setAttribute(propNameRank, rank);
+  }
+
 }
