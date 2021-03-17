@@ -46,15 +46,30 @@ public final class PropertyServiceMapping extends AbstractPropertyService{
     return src.getId() + ConstantsEEModel.KeywordSeparator1 + dst.getId();
   }
   
+  
+//  
+//  /**
+//   * Returns the rank of the given resource.
+//   * 
+//   * @param res the given resource
+//   * @return the rank of the given resource
+//   */
+//  public static int getRank(final Resource res) {
+//    return (int) getAttribute(res, propNameRank);
+//  }
+  
+  
+  // should look like this:
   /**
    * Returns the rank of the given resource.
    * 
    * @param res the given resource
    * @return the rank of the given resource
    */
-  public static int getRank(final Resource res) {
-    return (int) getAttribute(res, propNameRank);
+  public static int getRank(final Mapping<Task, Resource> mapping) {
+    return (int) getAttribute(mapping, propNameRank);
   }
+  
   
   /**
    * Sets the resource rank for the provided resource.
