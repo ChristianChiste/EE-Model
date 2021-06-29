@@ -15,7 +15,7 @@ jacoco {
 	}
 // to use GitHub repositories as dependencies
 
-group 'ChristianChiste-EE-Model'
+group 'Apollo-Core-EE-Model'
 version '1.0-SNAPSHOT'
 
 
@@ -30,12 +30,10 @@ dependencies {
 	
 	// dependencies to other parts of the Apollo Core EE
 	implementation 'com.github.ChristianChiste:EE-Core:master-SNAPSHOT'
-	
 	// as an example: dependency to Opt4J
 	implementation 'com.github.FedorSmirnov89:opt4j:-SNAPSHOT'
 	// dependency to opendse
 	implementation 'com.github.FedorSmirnov89:opendse:-SNAPSHOT'
-	
 	// gson to define the format of the exchanged messages
 	implementation 'com.google.code.gson:gson:2.8.6'
 	
